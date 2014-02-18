@@ -1,6 +1,6 @@
 Routing and Testing with Nancy
 ==============================
-#Testing
+##Testing
 
 One of the most compelling features of Nancy is how easy it is to test. It gives you a straightforward way to set up a test environment, 
 including injecting in mocks, stubs or test doubles, depending on your poison. We'll gloss over the bootstrapper stuff for now; just know 
@@ -31,7 +31,7 @@ I'm using a test harness framework called Fixie. It's conventaion-based. And, by
 public function within that class is a test. Fixie doesn't come with assertions either. While you're free to use anything, I love Shouldly. I think it gives things
 a nice, readable signature.
 
-# Routing
+##Routing
 Yes, it looks weird. Yes, it really is C#. The first time you look at a Nancy module, it might look just a little magical.
 
 ```csharp

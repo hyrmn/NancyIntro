@@ -1,6 +1,6 @@
 Views and Static Files
 ======================
-#Views and View Engines
+##Views and View Engines
 
 Nancy comes with the Super Simple View Engine. It's super, and simple, and super simple. Actually, it's pretty good and works for many use cases.
 
@@ -16,8 +16,9 @@ The Razor view engine works like you'd expect with a couple small quirks. First,
 }
 ```
 
-Second, you'll want to ensure the Razor view engine files are loaded. If you run the app, Nancy will do this by default. However, your tests won't load Razor by default.
-The easiest way to accomplish this is a bit of a hack; just include a reference in your bootstrapper (at this point, it's time for a custom bootstrapper).
+Second, you'll want to ensure the Razor view engine files are loaded. If you run the app, Nancy will do this by default. However, your tests won't load Razor by default. Blame it on Nancy, or the way .NET resolves dependencies. Either way, your tests are dead in the water.
+
+Depending oun your comfort level, you have two options for addressing this. One option is to just explicitly reference Razor in your bootstrapper (at this point, it's time for a custom bootstrapper).
 
 ```csharp
 public class Bootstrapper : DefaultNancyBootstrapper
@@ -25,6 +26,10 @@ public class Bootstrapper : DefaultNancyBootstrapper
 	private RazorViewEngine ensureRazorIsLoaded;
 }
 ```
+
+Another option is to just install the Razor view engine in your test project.
+
+###Resolving views
 
 There are some options for resolving views. The most straight-forward way is to specify the view that you want to return.
 
@@ -57,7 +62,7 @@ public class HomeModule : NancyModule
 
 This will look for a view named Quip. (Quip.cshtml in our case since we're using Razor)
 
-# Static files
+##Static files
 
 By default, Nancy only handles things that Nancy cares about. In other words, dynamic content. If we want Nancy to handle static content for us, we'll have to
 explicitly tell it what we want it to handle. We can also use the opportunity to control how we map requests to the physical content.

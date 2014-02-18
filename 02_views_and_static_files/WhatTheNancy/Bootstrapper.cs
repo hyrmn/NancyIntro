@@ -1,13 +1,10 @@
 ﻿using Nancy;
 using Nancy.Conventions;
-using Nancy.ViewEngines.Razor;
 
 namespace WhatTheNancy
 {
 	public class Bootstrapper : DefaultNancyBootstrapper
 	{
-		private RazorViewEngine ensureRazorIsLoaded;
-
 		protected override void ConfigureConventions(NancyConventions conventions)
 		{
 			base.ConfigureConventions(conventions);
