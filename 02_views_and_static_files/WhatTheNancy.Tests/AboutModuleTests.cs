@@ -8,7 +8,7 @@ namespace WhatTheNancy.Tests
 	{
 		public void about_page_resolves_correctly()
 		{
-			var sut = new Browser(new DefaultNancyBootstrapper());
+			var sut = new Browser(new Bootstrapper());
 
 			var result = sut.Get("/about");
 

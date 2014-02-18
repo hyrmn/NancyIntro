@@ -15,7 +15,7 @@ namespace WhatTheNancy.Tests
 		{
 			var sut = new Browser(new Bootstrapper());
 
-			var result = sut.Get("/css/site.css");
+			var result = sut.Get("/css/main.css");
 
 			result.StatusCode.ShouldBe(HttpStatusCode.OK);
 
