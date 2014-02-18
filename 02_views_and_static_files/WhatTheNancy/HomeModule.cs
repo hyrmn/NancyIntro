@@ -1,4 +1,5 @@
 ﻿using Nancy;
+using WhatTheNancy.Models;
 
 namespace WhatTheNancy
 {
@@ -6,9 +7,12 @@ namespace WhatTheNancy
 	{
 		public HomeModule()
 		{
-			Get["/"] = parameters => "Hello World";
+			Get["/"] = _ =>
+				{
+					var quip = new Quip("Hello World!");
 
-			Get["/{id}"] = parameters => "you requested id " + parameters.id;
+					return quip;
+				};
 		}
 	}
 }

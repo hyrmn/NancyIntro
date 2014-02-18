@@ -76,11 +76,20 @@
     <None Include="Views\About.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="content\css\bootstrap.css" />
-    <Content Include="content\css\font-awesome.min.css" />
-    <Content Include="content\css\main.css" />
+    <Content Include="content\css\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\css\font-awesome.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="content\css\main.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="content\fonts\fontawesome-webfont.svg" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\humans.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="content\img\01.jpg" />
     <Content Include="content\img\02.jpg" />
     <Content Include="content\img\03.jpg" />
@@ -95,11 +104,15 @@
     <Compile Include="AboutModule.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="HomeModule.cs" />
+    <Compile Include="Models\Quip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Quip.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Views\Shared\SiteLayout.cshtml">
@@ -126,7 +139,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>52766</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:59261/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

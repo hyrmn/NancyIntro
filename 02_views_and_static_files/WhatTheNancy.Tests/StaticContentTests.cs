@@ -18,7 +18,15 @@ namespace WhatTheNancy.Tests
 			var result = sut.Get("/css/main.css");
 
 			result.StatusCode.ShouldBe(HttpStatusCode.OK);
+		}
 
+		public void Are_we_humans_txt_or_are_we_dancers()
+		{
+			var sut = new Browser(new Bootstrapper());
+
+			var result = sut.Get("/humans.txt");
+
+			result.StatusCode.ShouldBe(HttpStatusCode.OK);
 		}
 	}
 }
