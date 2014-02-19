@@ -1,13 +1,15 @@
-﻿using Nancy;
+﻿using System;
+using Nancy;
 using Nancy.Testing;
 using Raven.Client;
 using Raven.Client.Embedded;
 using Shouldly;
+using WhatTheNancy.Models;
 using WhatTheNancy.Modules;
 
 namespace WhatTheNancy.Tests
 {
-	public class HomeModuleTests
+	public class HomeModuleTests : with_raven
 	{
 		public void root_path_shouldnt_go_all_michael_bay_on_us()
 		{
@@ -18,27 +20,29 @@ namespace WhatTheNancy.Tests
 			result.StatusCode.ShouldBe(HttpStatusCode.OK);
 		}
 
-		public void we_get_an_awesome_greeting_because_we_are_awesome()
+		public void can_persist_a_funny_commit_message()
 		{
-			var testingDocumentStore = new EmbeddableDocumentStore
-			{
-				Configuration = { RunInUnreliableYetFastModeThatIsNotSuitableForProduction = true, RunInMemory = true },
-			};
+			var sut = new Browser(new Bootstrapper { DataStore = DataStoreForTest });
 
-			testingDocumentStore.RegisterListener(new NoStaleQueriesAllowed());
-			testingDocumentStore.Initialize();
+			var aFunnyMessage = new Quip { Message = "Fixed some bad code" };
 
-			var sut = new Browser(with =>
-				{
-					with.Dependency<IDocumentStore>(testingDocumentStore);
-					with.Dependency<IDocumentSession>(testingDocumentStore.OpenSession());
+			var result = sut.Post("/quips", with => with.JsonBody(aFunnyMessage));
 
-					with.Module<HomeModule>();
-				});
+			result.StatusCode.ShouldBe(HttpStatusCode.Created);
+			var returnedQuip = result.Body.DeserializeJson<Quip>();
+			returnedQuip.Id.ShouldBe("quips/1");
+		}
 
-			var result = sut.Get("/");
+		public void can_get_an_awesome_commit_message()
+		{
+			var sut = new Browser(new Bootstrapper { DataStore = DataStoreForTest });
 
-			//result.Body["#totally_useful_commit_message"].ShouldExistOnce().And.ShouldContain("Hello World");
+			var aFunnyMessage = new Quip { Message = "By works, I meant 'doesnt work'. Works now.." };
+
+			var result = sut.Post("/quips", with => with.JsonBody(aFunnyMessage))
+											.Then.Get("/");
+
+			result.Body["#totally_useful_commit_message"].ShouldExistOnce().And.ShouldContain("works now", StringComparison.InvariantCultureIgnoreCase);
 		}
 	}
 }

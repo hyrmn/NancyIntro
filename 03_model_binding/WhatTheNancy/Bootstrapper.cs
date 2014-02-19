@@ -1,4 +1,5 @@
-﻿using Nancy;
+﻿using System;
+using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
@@ -9,14 +10,13 @@ namespace WhatTheNancy
 {
 	public class Bootstrapper : DefaultNancyBootstrapper
 	{
+		public Func<IDocumentStore> DataStore = () => new EmbeddableDocumentStore { ConnectionStringName = "MyData" };
+
 		protected override void ConfigureApplicationContainer(TinyIoCContainer container)
 		{
 			base.ConfigureApplicationContainer(container);
 
-			var store = new EmbeddableDocumentStore()
-			{
-				ConnectionStringName = "MyData"
-			};
+			var store = DataStore();
 
 			store.Initialize();
 

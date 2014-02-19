@@ -148,6 +148,9 @@
     <Content Include="Views\Quip.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\add.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Views\Shared\SiteLayout.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

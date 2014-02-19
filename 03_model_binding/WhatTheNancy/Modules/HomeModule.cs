@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Nancy;
+using Nancy.ModelBinding;
 using Raven.Client;
 using WhatTheNancy.Models;
 
@@ -17,6 +18,17 @@ namespace WhatTheNancy.Modules
 
 					return randomMessage;
 				};
+
+			Get["/add"] = _ => View["add", new Quip()];
+
+			Post["/quips"] = _ =>
+				{
+					var newQuip = this.Bind<Quip>();
+					session.Store(newQuip);
+
+					return Response.AsJson(newQuip, HttpStatusCode.Created);
+				};
 		}
+
 	}
 }

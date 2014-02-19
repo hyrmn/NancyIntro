@@ -1,0 +1,17 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<WhatTheNancy.Models.Quip>
+<br/><br/>
+<div class="container">
+	<form action="/quips" method="post" role="form">
+		<div class="form-group">
+			<label class="col-md-2 control-label">Message</label>
+			<div class="col-md-10">
+				<input type="text" id="Message" name="Message" class="form-control">
+			</div>
+		</div>
+		<br/>
+		<br/>
+		<div class="form-group">
+			<div class="col-md-offset-2 col-md-10"><button type="submit" class="btn btn-default"/>Add</button></div>
+		</div>
+	</form>
+</div>
