@@ -6,8 +6,8 @@ One of the most compelling features of Nancy is how easy it is to test. It gives
 including injecting in mocks, stubs or test doubles, depending on your poison. We'll gloss over the bootstrapper stuff for now; just know 
 that its core to configuring Nancy. Since we're just using Nancy's defaults, we'll just use the default bootstrapper.
 
-The Browser object isn't actually making HTTP calls. Rather, it's calling into Nancy at the same point our host container would hand off a request.
-This makes it very fast, and just as useful (assuming you're not trying to use unit tests to troubleshoot network problems!)
+The Browser object provides a great way to wire up your application for testing, convenience methods for handling both requests and responses, as well as 
+an interface to CsQuery for easily testing returned content.
 
 ```csharp
 public class HomeModuleTests
@@ -25,7 +25,7 @@ public class HomeModuleTests
 
 That should be pretty straightforward.
 
-Apart from all of the Nancy testing stuff, you might wonder about the funky test syntax I'm using. This has absolutely nothing to do with Nancy! I'm just weird.
+Apart from all of the Nancy testing stuff, you might wonder about the funky test syntax I'm using. This has absolutely nothing to do with Nancy! 
 
 I'm using a test harness framework called Fixie. It's conventaion-based. And, by default, it assumes any class that ends in 'Tests' is a test class and any 
 public function within that class is a test. Fixie doesn't come with assertions either. While you're free to use anything, I love Shouldly. I think it gives things
