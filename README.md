@@ -31,7 +31,4 @@ Testing
 
 It's generally a good idea anyway to keep your tests in a different assembly than your production code. This is especially true in Nancy since, by default, it auto-discovers types and you don't want your test junk and production junk mixed together.
 
-Nancy.Testing comes with a very useful class called Browser. We'll use this to simulate requests to Nancy. Note: The requests aren't going over HTTP, they're hitting Nancy at the earliest point it handles the request.
-
-The benefit of this is that it... 1) makes the tests very fast (no HTTP) while 2) exercises the entire request pipeline within Nancy (think to how you might test an asp.net mvc controller that has action attributes on it)
-
+Nancy.Testing comes with a very useful class called Browser. 
