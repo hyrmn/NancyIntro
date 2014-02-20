@@ -69,6 +69,8 @@ Where to go from here
 
 http://nancyfx.org/
 
+http://samples.nancyfx.org/
+
 https://jabbr.net/#/rooms/nancyfx
 
 https://github.com/hyrmn/NancyIntro
