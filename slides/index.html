@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Nancy &mdash; Nancy 2014.02.19 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/styles.css" type="text/css" />
+    <link rel="stylesheet" href="_static/slides.css" type="text/css" />
+    
+
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="top" title="Nancy 2014.02.19 documentation" href="#" /> 
+  </head>
+  <body>
+
+<section
+   id="slide_container"
+   class='slides layout-regular'>
+
+
+  <article class="slide level-1" id="nancy">
+<h1>Nancy</h1>
+<blockquote>
+<div>What, why, and why you care</div></blockquote>
+
+</article>
+<article class="slide level-2" id="the-what">
+<h2>The What</h2>
+<p>Nancy is a low-ceremony, convention-based framework that loves HTTP (and you):</p>
+<div class="highlight-python"><div class="highlight"><pre>public class HomeModule : NancyModule
+{
+  public HomeModule()
+  {
+    Get[&quot;/&quot;] = _ =&gt; &quot;Hello World!&quot;;
+  }
+}
+</pre></div>
+</div>
+<p>Yes, it looks funky. It really is C#, I promise.</p>
+
+</article>
+<article class="slide level-2" id="wait-what">
+<h2>Wait, what?</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Nancy</th>
+<th class="head">ASP.NET</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Module</td>
+<td>Controller</td>
+</tr>
+<tr class="row-odd"><td>Bootstrapper</td>
+<td>Global.asax</td>
+</tr>
+</tbody>
+</table>
+<p>Everything is configurable and replaceable in Nancy.</p>
+<p>If you don't like the conventions, it's pretty easy to override them (but why would you want to?)</p>
+
+</article>
+<article class="slide level-2" id="fine-but-why">
+<h2>Fine, but why?</h2>
+<ul class="simple">
+<li>It's fast, it's lightweight, it cares about testing</li>
+<li>Speaks HTTP verbs</li>
+<li>Run it on: ASP.NET, self-host, OWIN (including Helios and Katana)</li>
+<li>Runs on Mono!</li>
+<li>Just wait until you see the content negotiation</li>
+</ul>
+
+</article>
+<article class="slide level-2" id="testing">
+<h2>Testing</h2>
+<ul class="simple">
+<li>Testability and dependency injection are first-class concerns.</li>
+<li>Nancy comes with an IoC container but you can override it with your own.</li>
+<li>Test harness that hits the actual endpoints of your app!</li>
+<li>And makes it trivial to swap in a test environment bootstrapper!</li>
+<li>Comes with CsQuery for easy assertions of your HTML</li>
+</ul>
+
+</article>
+<article class="slide level-2" id="ok-ok-enough-talk">
+<h2>ok, ok, enough talk</h2>
+<p>We're going to build up a very simple Nancy application.</p>
+<p>If you're following along at home, start with <tt class="docutils literal"><span class="pre">01_routing_and_testing</span> <span class="pre">directory</span></tt></p>
+
+</article>
+<article class="slide level-2" id="where-to-go-from-here">
+<h2>Where to go from here</h2>
+<p><a class="reference external" href="http://nancyfx.org/">http://nancyfx.org/</a></p>
+<p><a class="reference external" href="https://jabbr.net/#/rooms/nancyfx">https://jabbr.net/#/rooms/nancyfx</a></p>
+<p><a class="reference external" href="https://github.com/hyrmn/NancyIntro">https://github.com/hyrmn/NancyIntro</a></p>
+
+</article>
+
+
+</section>
+
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2014.02.19',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/common.js"></script>
+    <script type="text/javascript" src="_static/slides.js"></script>
+    <script type="text/javascript" src="_static/sync.js"></script>
+    <script type="text/javascript" src="_static/controller.js"></script>
+    <script type="text/javascript" src="_static/init.js"></script>
+    
+  </body>
+</html>
