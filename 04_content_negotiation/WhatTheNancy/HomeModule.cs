@@ -3,6 +3,7 @@ using Nancy;
 using Nancy.ModelBinding;
 using Raven.Client;
 using WhatTheNancy.Models;
+using Nancy.Responses;
 
 namespace WhatTheNancy
 {
@@ -27,7 +28,8 @@ namespace WhatTheNancy
 				var newQuip = this.Bind<Quip>();
 				session.Store(newQuip);
 
-				return Response.AsJson(newQuip, HttpStatusCode.Created);
+				return Negotiate.WithMediaRangeResponse("text/html", Response.AsRedirect("/"))
+				                .WithMediaRangeModel("application/json", () => Response.AsJson(newQuip, HttpStatusCode.Created));
 			};
 		}
 	}

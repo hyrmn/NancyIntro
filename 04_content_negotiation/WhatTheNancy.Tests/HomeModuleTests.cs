@@ -24,7 +24,11 @@ namespace WhatTheNancy.Tests
 
 			var aFunnyMessage = new Quip { Message = "Fixed some bad code" };
 
-			var result = sut.Post("/quips", with => with.JsonBody(aFunnyMessage));
+			var result = sut.Post("/quips", with =>
+				{
+					with.JsonBody(aFunnyMessage);
+					with.Accept("application/json");
+				});
 
 			result.StatusCode.ShouldBe(HttpStatusCode.Created);
 			var returnedQuip = result.Body.DeserializeJson<Quip>();
