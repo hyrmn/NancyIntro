@@ -12,8 +12,7 @@ Sample app we'll be building up:
 WhatTheNancy; a single-purpose website for generating commit messages.
 
 - Home page that shows a random commit message; should render as HTML, json, text, xml
-- About page
-- Secured page for adding messages
+- Route for adding pages via an html form or json with appropriate response codes for each
 
 Additional information about each step is stored in the respective directory. Start with [01_routing_and_testing](https://github.com/hyrmn/NancyIntro/tree/master/01_routing_and_testing) and go on from there.
 

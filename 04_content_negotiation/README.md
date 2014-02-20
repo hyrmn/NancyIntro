@@ -8,13 +8,15 @@ Remember that killer Get handler for the root route?
 ```csharp
 public class HomeModule : NancyModule
 {
-	public HomeModule()
+	public HomeModule(IDocumentSession session)
 	{
 		Get["/"] = _ =>
 			{
-				var quip = new Quip("Hello World!");
+				var randomMessage = session.Query<Quip>()
+										 .Customize(x => x.RandomOrdering())
+										 .Take(1).FirstOrDefault();
 
-				return quip;
+				return randomMessage;
 			};
 	}
 }
